@@ -1,0 +1,34 @@
+ break;
+            }
+
+            case 5:
+            {
+                // Generate random number between 0 and 99
+                int randomNumber = rand() % 100;
+
+                cout << "Generated random integer: "
+                     << randomNumber << endl;
+
+                cout << "Binary representation: "
+                     << decimalToBinary(randomNumber) << endl;
+
+                break;
+            }
+
+            case 6:
+            {
+                cout << "Exiting the program.\n";
+                break;
+            }
+
+            default:
+            {
+                cout << "Invalid choice. Please select 1-6.\n";
+                break;
+            }
+        }
+
+    } while (choice != 6);
+
+    return 0;
+}
