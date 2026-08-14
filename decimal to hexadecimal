@@ -1,0 +1,23 @@
+else
+                {
+                    cout << "Invalid hexadecimal number.\n";
+                }
+
+                break;
+            }
+
+            case 4:
+            {
+                int decimal;
+
+                cout << "Enter a decimal number: ";
+                cin >> decimal;
+
+                if (decimal < 0)
+                {
+                    cout << "Please enter a positive integer.\n";
+                }
+                else
+                {
+                    cout << "Hexadecimal representation: "
+                         << decimalToHexadecimal(decimal) << endl;
