@@ -1,0 +1,90 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+// Function 1: Decimal to Binary
+string decimalToBinary(int decimal)
+{
+    if (decimal == 0)
+        return "0";
+
+    string binary = "";
+
+    while (decimal > 0)
+    {
+        binary = char((decimal % 2) + '0') + binary;
+        decimal = decimal / 2;
+    }
+
+    return binary;
+}
+
+// Function 2: Binary to Decimal
+int binaryToDecimal(string binary)
+{
+    int decimal = 0;
+
+    for (char digit : binary)
+    {
+        decimal = decimal * 2 + (digit - '0');
+    }
+
+    return decimal;
+}
+
+// Function 3: Decimal to Hexadecimal
+string decimalToHexadecimal(int decimal)
+{
+    if (decimal == 0)
+        return "0";
+
+    string hexadecimal = "";
+    char hexDigits[] = "0123456789ABCDEF";
+
+    while (decimal > 0)
+    {
+        int remainder = decimal % 16;
+        hexadecimal = hexDigits[remainder] + hexadecimal;
+        decimal = decimal / 16;
+    }
+
+    return hexadecimal;
+}
+
+// Function 4: Hexadecimal to Decimal
+int hexadecimalToDecimal(string hexadecimal)
+{
+    int decimal = 0;
+
+    for (char digit : hexadecimal)
+    {
+        int value;
+
+        if (digit >= '0' && digit <= '9')
+        {
+            value = digit - '0';
+        }
+        else if (digit >= 'A' && digit <= 'F')
+        {
+            value = digit - 'A' + 10;
+        }
+        else if (digit >= 'a' && digit <= 'f')
+        {
+            value = digit - 'a' + 10;
+        }
+        else
+        {
+            return -1; // Invalid hexadecimal digit
+        }
+
+        decimal = decimal * 16 + value;
+    }
+
+    return decimal;
+}
+
+// Function to check if binary number is valid
+boo
