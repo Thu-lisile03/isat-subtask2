@@ -1,0 +1,97 @@
+bool isValidBinary(string binary)
+{
+    if (binary.empty())
+        return false;
+
+    for (char digit : binary)
+    {
+        if (digit != '0' && digit != '1')
+            return false;
+    }
+
+    return true;
+}
+
+// Function to check if hexadecimal number is valid
+bool isValidHexadecimal(string hexadecimal)
+{
+    if (hexadecimal.empty())
+        return false;
+
+    for (char digit : hexadecimal)
+    {
+        if (!((digit >= '0' && digit <= '9') ||
+              (digit >= 'A' && digit <= 'F') ||
+              (digit >= 'a' && digit <= 'f')))
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+// Main program
+int main()
+{
+    int choice;
+
+    // Seed random number generator
+    srand(time(0));
+
+    do
+    {
+        cout << "\n====================================\n";
+        cout << "        CONVERSION MENU\n";
+        cout << "====================================\n";
+        cout << "1. Convert Decimal to Binary\n";
+        cout << "2. Convert Binary to Decimal\n";
+        cout << "3. Convert Hexadecimal to Decimal\n";
+        cout << "4. Convert Decimal to Hexadecimal\n";
+        cout << "5. Demo (Generate and convert random integers to binary)\n";
+        cout << "6. Exit\n";
+        cout << "====================================\n";
+        cout << "Enter your choice (1-6): ";
+        cin >> choice;
+
+        switch (choice)
+        {
+            case 1:
+            {
+                int decimal;
+
+                cout << "Enter a decimal number: ";
+                cin >> decimal;
+
+                if (decimal < 0)
+                {
+                    cout << "Please enter a positive integer.\n";
+                }
+                else
+                {
+                    cout << "Binary representation: "
+                         << decimalToBinary(decimal) << endl;
+                }
+
+                break;
+            }
+
+            case 2:
+            {
+                string binary;
+
+                cout << "Enter a binary number: ";
+                cin >> binary;
+
+                if (isValidBinary(binary))
+                {
+                    cout << "Decimal representation: "
+                         << binaryToDecimal(binary) << endl;
+                }
+                else
+                {
+                    cout << "Invalid binary number. Use only 0 and 1.\n";
+                }
+
+                break;
+            }
